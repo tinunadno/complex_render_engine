@@ -1,4 +1,4 @@
-package org.ComplexRenderEngine.RenderEngine;
+package org.ComplexRenderEngine.RenderEngine.IO;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

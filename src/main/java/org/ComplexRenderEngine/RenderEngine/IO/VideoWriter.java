@@ -1,4 +1,4 @@
-package org.ComplexRenderEngine.RenderEngine;
+package org.ComplexRenderEngine.RenderEngine.IO;
 
 import org.bytedeco.ffmpeg.global.avcodec;
 import org.bytedeco.javacv.FFmpegFrameRecorder;
@@ -10,10 +10,28 @@ import org.ComplexRenderEngine.Main;
 
 import java.awt.image.BufferedImage;
 import java.nio.ByteBuffer;
+import java.util.ArrayList;
 
 public class VideoWriter {
+    private static ArrayList<VideoWriter> recordingWriters = new ArrayList<>();
+    private static boolean isTerminating = false;
+
+    public static void finishAllRecordings(){
+        isTerminating = true;
+        for(VideoWriter videoWriter : recordingWriters){
+            videoWriter.stopRecording();
+        }
+    }
+
+    private static void removeIndividualRecorderFromRunning(VideoWriter videoWriter){
+        if(!isTerminating){
+            recordingWriters.remove(videoWriter);
+        }
+    }
+
     private FFmpegFrameRecorder recorder;
     public void initRecording(){
+        recordingWriters.add(this);
         String outputFile = "output_video.avi";  // Используем формат AVI для без потерь
         int width = Main.SCREEN_X_SIZE;
         int height = Main.SCREEN_Y_SIZE;
@@ -49,6 +67,7 @@ public class VideoWriter {
 
     public void stopRecording(){
         try{
+            removeIndividualRecorderFromRunning(this);
             recorder.stop();
             recorder.release();
         }catch (FFmpegFrameRecorder.Exception e){

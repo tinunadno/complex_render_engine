@@ -6,6 +6,7 @@ import org.ComplexRenderEngine.ComplexFunction.MondelbrotSetFunction;
 import org.ComplexRenderEngine.Main;
 import org.ComplexRenderEngine.RenderEngine.Gradient.ColorGradient;
 import org.ComplexRenderEngine.RenderEngine.Gradient.ColorGradient1;
+import org.ComplexRenderEngine.RenderEngine.IO.VideoWriter;
 
 import java.awt.image.BufferedImage;
 
@@ -60,10 +61,7 @@ public class RenderWrapper {
                 biRender.setDisplacement(displacement);
             }
 
-            System.out.println(displacement);
-            System.out.println(scale);
-            System.out.println(step);
-            System.out.println(i);
+
 
             ((MondelbrotSetFunction) complexFunction).setExponent(i);
             BufferedImage renderedImage = biRender.renderImage();
