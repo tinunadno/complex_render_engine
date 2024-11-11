@@ -23,14 +23,33 @@ then add each frame with recordFrame(BufferedImage) and write to file with stopR
 
 !!!IMPORTANT!!! all *now rendering videos* saving automatically on ctrl-c interuption, in the middle of the output video
     
-in biRender clas you can set up function output value:
+in biRender clas you can set up function output value, then it will map to RGB color on image in postProcessing function:
+
   example:
     
     if (z.module() <= range) preRender[i][j] = minModule*5;
     else preRender[i][j] =  iter/(double)iterationCount;
 
+to set up your gradient create class extends ColorGradient and create an array of color points
+
+see the example in colorGradient1, you can just take valuetoGradient for linear interpolation between colors
+
+example:
+
+        colorRamp = new ColorPoint[3];
+        colorRamp[2] = new ColorPoint((short) 251, (short) 229, (short) 28, 1);
+        colorRamp[1] = new ColorPoint((short) 251, (short) 0, (short) 28, 0.5);
+        colorRamp[0] = new ColorPoint((short) 70, (short) 0, (short) 92, 0);
+
+  values from biRender will map to this gradient from [min_function_uotput, max_function_uotput] to [0, 1]
+
+    (70;0;92)  (251;0;28)  (251;229;28)
+
+        |======---------_______|
+    
+        0.0       0.5          1.0
   
-you can also create your own function, you need to create ComplexFunction extends class
+you can also create your own Complex function, you need to create ComplexFunction extends class
 example:
 
     public class JustAFunction extends ComplexFunction{
