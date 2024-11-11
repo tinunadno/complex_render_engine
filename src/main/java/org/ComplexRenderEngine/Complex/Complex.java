@@ -14,6 +14,11 @@ public class Complex {
         imag = Imag;
     }
 
+    public Complex(double mainArg){
+        real = Math.cos(mainArg);
+        imag = Math.sin(mainArg);
+    }
+
     //math methods
     //base methods
     //debugged

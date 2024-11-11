@@ -17,6 +17,7 @@ public class VideoWriter {
     private static boolean isTerminating = false;
 
     public static void finishAllRecordings(){
+        System.out.println("saving all renders");
         isTerminating = true;
         for(VideoWriter videoWriter : recordingWriters){
             videoWriter.stopRecording();

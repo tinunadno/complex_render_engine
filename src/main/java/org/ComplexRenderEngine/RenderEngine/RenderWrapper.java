@@ -39,31 +39,15 @@ public class RenderWrapper {
         double scale = 100;
         double step = 0.01;
         for (double i = 2.0; i < 4.01; i += step) {
-            if (i < 2.15499) {
-                displacement.setReal(displacement.getReal() - 0.016);
+            if (displacement.getReal() > -1.5) {
+                displacement.setReal(displacement.getReal() - 0.1);
                 biRender.setDisplacement(displacement);
             }
-            if (i > 2.1 && i < 2.129) {
+            if (scale < 2000) {
                 scale += 20;
                 biRender.setScale(scale);
             }
-            if(i > 2.1 && i < 2.7){
-                step = 0.001;
-            }
-            if(i>2.7 && i<2.729){
-                step = 0.01;
-                scale -= 20;
-                biRender.setScale(scale);
-            }
 
-            if(i > 2.7 && i< 2.85499){
-                displacement.setReal(displacement.getReal() + 0.01);
-                biRender.setDisplacement(displacement);
-            }
-
-
-
-            ((MondelbrotSetFunction) complexFunction).setExponent(i);
             BufferedImage renderedImage = biRender.renderImage();
 
             videoWriter.recordFrame(renderedImage);
@@ -72,5 +56,6 @@ public class RenderWrapper {
         }
 
         videoWriter.stopRecording();
+        System.out.println("rendering done");
     }
 }
