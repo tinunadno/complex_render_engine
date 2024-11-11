@@ -17,8 +17,10 @@ Engine settings:
       }
     
 in init_render() you can setup your animation, example in java files
+
 !!!IMPORTANT!!! to render your animation, or single frame t file, use VideoWriter and ImageWriter class, for video before rendering call init function, 
 then add each frame with recordFrame(BufferedImage) and write to file with stopRecording
+
 !!!IMPORTANT!!! all *now rendering videos* saving automatically on ctrl-c interuption, in the middle of the output video
     
 in biRender clas you can set up function output value:
