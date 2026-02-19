@@ -1,9 +1,6 @@
 # Example
 
-<video width="800" autoplay loop muted playsinline poster="ttps://github.com/tinunadno/complex_render_engine/raw/master/contents/output_render.png">
-  <source src="https://github.com/tinunadno/complex_render_engine/raw/master/contents/output_video.mp4" type="video/mp4">
-  videos not supported in your browser(
-</video>
+![output_video.gif](contents/output_video.gif)
 
 # Implementation & settings description
 
