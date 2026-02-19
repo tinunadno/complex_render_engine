@@ -1,8 +1,8 @@
 # Example
 
-<video width="800" autoplay loop muted playsinline poster="https://github.com/tinunadno/complex_render_engine/tree/master/contents/output_render.png">
-  <source src="https://github.com/tinunadno/complex_render_engine/tree/master/contents/output_video.mp4" type="video/mp4">
-  Ваш браузер не поддерживает видео.
+<video width="800" autoplay loop muted playsinline poster="ttps://github.com/tinunadno/complex_render_engine/raw/master/contents/output_render.png">
+  <source src="https://github.com/tinunadno/complex_render_engine/raw/master/contents/output_video.mp4" type="video/mp4">
+  videos not supported in your browser(
 </video>
 
 # Implementation & settings description
